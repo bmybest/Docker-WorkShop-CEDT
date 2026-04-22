@@ -27,7 +27,7 @@ FROM node:20.11-slim
 WORKDIR /app
 
 # TODO(step-4e): copy the fully-installed app from the builder stage.
-COPY --from=builder /app /app
+COPY --from=builder /app .
 
 ENV NODE_ENV=production
 EXPOSE 3000
@@ -40,4 +40,3 @@ CMD node -e "require('http').get('http://localhost:3000/health', r => process.ex
 
 # TODO(step-4g): declare the container start command.
 CMD ["node", "src/index.js"]
-
